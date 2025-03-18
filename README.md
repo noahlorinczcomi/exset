@@ -10,8 +10,17 @@ We assume that researchers have gene-based association test statistics and inten
 
 We simulate the following data which is necessary to perform a gene-based association test, then use the ```exset``` function to test the null hypothesis of no association between any SNPs in the gene-specific set and the phenotype.
 ```R
-m=100 # number of SNPs tested for this gene
+m=5 # number of SNPs tested for this gene
 R=0.5^toeplitz(0:(m-1)) # first-order autoregressive structure of the LD matrix with correlation parameter 0.5
+lam=eigen(R)$values # eigenvalues of the LD matrix
+z=mvnfast::rmvn(10,rep(0,m),R) # simulating data for 10 gene-based test statistics
+statistics=diag(z%*%t(z)) # length-10 vector of 10 independent gene-based test statistics
+exset(statistics,lam,alpha=0.05)
 
-
+ [1] "fail to reject H0" "fail to reject H0"
+ [3] "fail to reject H0" "fail to reject H0"
+ [5] "fail to reject H0" "fail to reject H0"
+ [7] "reject H0"         "fail to reject H0"
+ [9] "fail to reject H0" "fail to reject H0"
 ```
+The ```exset``` function circumvents having to specify the null distribution of the gene-based association test statistic and so only returns a decision as to whether the null hypothesis should be rejected at level ```type1_error``` or not, i.e. it does not return a P-value.
