@@ -8,6 +8,10 @@ The principle of our method is to find the null region in the joint space of a r
 # Implementation
 We assume that researchers have gene-based association test statistics and intend to test their null hypotheses of no association with a phenotype. The [GenT Shiny application](https://nlorinczcomi.shinyapps.io/gent/) provides these statistics for over 30 phenotypes, along with quantities related to the linkage disequilibrium (LD) structure of the SNPs which are used in each gene-based association test.
 
+```R
+remotes::install_github('noahlorinczcomi/exset')
+```
+
 We simulate the following data which is necessary to perform a gene-based association test, then use the ```exset``` function to test the null hypothesis of no association between any SNPs in the gene-specific set and the phenotype.
 ```R
 m=5 # number of SNPs tested for this gene
