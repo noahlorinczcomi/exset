@@ -14,12 +14,18 @@ remotes::install_github('noahlorinczcomi/exset')
 
 We simulate the following data which is necessary to perform a gene-based association test, then use the ```exset``` function to test the null hypothesis of no association between any SNPs in the gene-specific set and the phenotype.
 ```R
-m=5 # number of SNPs tested for this gene
+# a function to generate simulated data under H0 of the gene-based null hypothesis
+simdata=function(niter,R) {
+  m=nrow(R)
+  Z=mvnfast::rmvn(niter,rep(0,m),R)
+  S=rowSums(Z^2)
+  S
+}
+m=50 # number of SNPs tested for this gene
 R=0.5^toeplitz(0:(m-1)) # first-order autoregressive structure of the LD matrix with correlation parameter 0.5
+S=simdata(niter=10,R=R) # generate 10 simulated gene-based test statistics under the gene-based null hypothesis
 lam=eigen(R)$values # eigenvalues of the LD matrix
-z=mvnfast::rmvn(10,rep(0,m),R) # simulating data for 10 gene-based test statistics
-statistics=diag(z%*%t(z)) # length-10 vector of 10 independent gene-based test statistics
-exset(statistics,lam,alpha=0.05)
+exset(S,lam,type1_error=0.05) # test results for each of the 10 genes
 
  [1] "fail to reject H0" "fail to reject H0"
  [3] "fail to reject H0" "fail to reject H0"
