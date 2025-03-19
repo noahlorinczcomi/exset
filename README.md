@@ -1,7 +1,7 @@
 # Overview
 This repository contains a brief introduction to an **ex**act **set**-based gene association test statistic (**exset**). 
 
-Existing methods to test a gene-based association null hypothesis rely on permutation, simulation, or approximation since the null distribution of the test statistic isn't known. This can lead to uncontrolled Type I errors and enormous computational burden. We overcome these computational and theoretical limitations by providing a theoretically exact hypothesis test which does not require stating the null distribution of the testing statistic. 
+Existing methods to test a gene-based association null hypothesis using the sum of SNP chi-squares in a gene-specific set rely on permutation, simulation, or approximation since the null distribution of the test statistic isn't known. This can lead to uncontrolled Type I errors and enormous computational burden. We overcome these computational and theoretical limitations by providing a theoretically exact hypothesis test which does not require stating the null distribution of the testing statistic. 
 
 The principle of our method is to find the null region in the joint space of a random vector whose 2-norm is distributionally equivalent to the standard gene-based association test statistic, then to compare the standard test statistic to this null region. Please read our [Technical Note](https://github.com/noahlorinczcomi/exset/blob/main/Technical%20Note.pdf) for more details, and see our [simulation code](https://github.com/noahlorinczcomi/exset/blob/main/plot_and_simulation_code.R) to replicate all of our results.
 
