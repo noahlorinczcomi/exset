@@ -15,7 +15,7 @@ mc_integrate=function(lam,niter=10000,alpha=0.05) {
   X=X*matrix(lam,niter,p,byrow=TRUE)
   r=rowSums(X)
   tau=quantile(r,prob=1-alpha)
-  tau
+  return(tau)
 }
 
 #' Exact Gene-Based Testing
