@@ -34,4 +34,4 @@ exset(S,lam,type1_error=0.05) # test results for each of the 10 genes
  [7] "reject H0"         "fail to reject H0"
  [9] "fail to reject H0" "fail to reject H0"
 ```
-The ```exset``` function circumvents having to specify the null distribution of the gene-based association test statistic and so only returns a decision as to whether the null hypothesis should be rejected at level ```type1_error``` or not, i.e. it does not return a P-value.
+The ```exset``` function circumvents having to specify the null distribution of the gene-based association test statistic and so only returns a decision as to whether the null hypothesis should be rejected at level ```type1_error``` or not, i.e. it does not return a P-value because it is not possible to exactly calculate.
