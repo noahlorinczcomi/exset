@@ -14,6 +14,7 @@ remotes::install_github('noahlorinczcomi/exset')
 
 We simulate the following data which is necessary to perform a gene-based association test, then use the ```exset``` function to test the null hypothesis of no association between any SNPs in the gene-specific set and the phenotype.
 ```R
+library(exset)
 # a function to generate simulated data under H0 of the gene-based null hypothesis
 simdata=function(niter,R) {
   m=nrow(R)
