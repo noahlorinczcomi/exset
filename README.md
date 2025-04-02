@@ -6,7 +6,7 @@ Existing methods to test a gene-based association null hypothesis using the sum 
 The principle of our method is to find the null region in the joint space of a random vector whose 2-norm is distributionally equivalent to the standard gene-based association test statistic, then to compare the standard test statistic to the critical value defining this null region. Please read our [Technical Note](https://github.com/noahlorinczcomi/exset/blob/main/Technical%20Note.pdf) for more details, and see our [simulation code](https://github.com/noahlorinczcomi/exset/blob/main/plot_and_simulation_code.R) to replicate all of our results.
 
 # Implementation
-We assume that researchers have gene-based association test statistics and intend to test their null hypotheses of no association with a phenotype. The [GenT Shiny application](https://nlorinczcomi.shinyapps.io/gent/) provides these statistics for over 30 phenotypes, along with quantities related to the linkage disequilibrium (LD) structure of the SNPs which are used in each gene-based association test.
+We assume that researchers have gene-based association test statistics and intend to test their null hypotheses of no association with a phenotype. The [GenT Shiny application](https://nlorinczcomi.shinyapps.io/gent/) provides these statistics for over 50 phenotypes, along with quantities related to the linkage disequilibrium (LD) structure of the SNPs which are used in each gene-based association test.
 
 ```R
 remotes::install_github('noahlorinczcomi/exset')
